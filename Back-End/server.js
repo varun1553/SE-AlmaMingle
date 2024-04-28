@@ -83,9 +83,9 @@ app.use("/payment-api", paymentApp);
 app.use("/donation-api", donationApp);
 
 // dealing with page refresh
-// app.use('/',(request,response)=>{
-//   response.sendFile(path.join(__dirname,'../Front-End/build'))
-// })
+app.use('/',(request,response)=>{
+  response.sendFile(path.join(__dirname,'../Front-End/build'))
+})
 
 
 //handling invalid paths
