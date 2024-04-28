@@ -6,7 +6,7 @@ require("dotenv").config();
 paymentApp.use(express.json());
 paymentApp.use(express.urlencoded());
 const { ObjectId } = require('mongodb');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SECRET_KEY);
 
 
 
