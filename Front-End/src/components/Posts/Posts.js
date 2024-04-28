@@ -105,7 +105,7 @@ const Posts = () => {
 
   const handleLike = async (postId) => {
     try {
-      const response = await axios.get(`/increaselike/${postId}`);
+      const response = await axios.get(apiUrl+`/increaselike/${postId}`);
       if (response.status === 200) {
         console.log(response.data.message);
         setLiked(true);
@@ -119,7 +119,7 @@ const Posts = () => {
 
   const handleUnlike = async (postId) => {
     try {
-      const response = await axios.get(`/decreaselike/${postId}`);
+      const response = await axios.get(apiUrl+`/decreaselike/${postId}`);
 
       if (response.status === 200) {
         console.log(response.data.message);

@@ -14,6 +14,7 @@ const TempPost = ({ post }) => {
   const [showCommentSection, setShowCommentSection] = useState(false); // State to toggle comment section
   const [key, setKey] = useState(0); // Key to force re-render
   const { userObj } = useSelector((state) => state.user);
+  const apiUrl = process.env.REACT_APP_URL;
 
   useEffect(() => {
     getLikeStatus(post._id);
@@ -34,7 +35,7 @@ const TempPost = ({ post }) => {
       if (!username) {
         return;
       }
-      const response = await axios.put(`/post-api/setlike/${postId}/${username}`);
+      const response = await axios.put(apiUrl+`/post-api/setlike/${postId}/${username}`);
       const { liked, likecount } = response.data; // Update like count from API response
       setLiked(liked);
       setLikeCount(likecount);
@@ -50,7 +51,7 @@ const TempPost = ({ post }) => {
       if (!username) {
         return;
       }
-      const response = await axios.get(`/post-api/getlikepost/${postId}/${username}`);
+      const response = await axios.get(apiUrl+`/post-api/getlikepost/${postId}/${username}`);
       const { liked, likecount } = response.data;
       setLiked(liked);
       setLikeCount(likecount);
@@ -62,7 +63,7 @@ const TempPost = ({ post }) => {
   const handleCommentSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('/comment-api/post-comment', {
+      const response = await axios.post(apiUrl+'/comment-api/post-comment', {
         postId: post._id,
         username: userObj.username,
         content: comment,
@@ -77,7 +78,7 @@ const TempPost = ({ post }) => {
 
   const fetchComments = async (postId) => {
     try {
-      const response = await axios.get(`/comment-api/get-comments/${postId}`);
+      const response = await axios.get(apiUrl+`/comment-api/get-comments/${postId}`);
       setComments(response.data);
     } catch (error) {
       console.error('Error fetching comments:', error);

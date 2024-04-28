@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+const apiUrl = process.env.REACT_APP_URL;
 
 // make HTTP POST request to login admin
 export const adminLogin = createAsyncThunk('loginadmin', async (adminCredentialsObject, thunkApi) => {
   try {
-    const response = await axios.post('/admin-api/login', adminCredentialsObject);
+    const response = await axios.post(apiUrl+'/admin-api/login', adminCredentialsObject);
     const data = response.data;
 
     if (data.message === 'success') {
