@@ -7,10 +7,13 @@ import { useSelector } from 'react-redux';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
-const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY);
+
 const apiUrl = process.env.REACT_APP_URL;
+const stripeKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
 
 const Events = () => {
+
+  const stripePromise = loadStripe(stripeKey)
   const [events, setEvents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);

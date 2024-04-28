@@ -29,11 +29,11 @@ import DonateNow from "../DonateNow";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
-const stripePromise = loadStripe('pk_test_51P5rdsP9Ok8DmdR9KLz2PgjDUr0E9f57zLmGZvlfwBAeb6d7lxSOaUgLv0cUE49VONJNve7qepuR5sTB9vDnRV6j008PbB03PQ');
-
+const stripeKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
 
 function Header() {
 
+  const stripePromise = loadStripe(stripeKey)
   const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("")
@@ -45,6 +45,7 @@ function Header() {
   const { isError: adminIsError, isLoading: adminIsLoading, isSuccess: adminIsSuccess, errMsg: adminErrMsg, adminObj } = useSelector(
     (state) => state.admin
   );
+  
 
 
   // Function to handle password change
