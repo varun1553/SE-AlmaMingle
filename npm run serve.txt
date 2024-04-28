@@ -1,0 +1,24 @@
+npm run serve
+
+
+
+npm run start:l
+ng serve --open --configuration=orddev
+
+
+Superadmin Doc. Dev :-
+aarontravass@gmail.com
+Hello@1999
+.
+Doctor Dev Env :- 
+alicehack2020@gmail.com 
+Hello@1999
+.
+OHP Admin Account Dev.
+cexega6946@moxkid.com
+Hello@1999
+.
+
+OHP Dev Env :-
+kartikchate84@gmail.com
+Kartik@111
