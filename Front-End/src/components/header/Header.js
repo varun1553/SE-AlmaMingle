@@ -28,6 +28,7 @@ import Events from "../new_event/get_event";
 import DonateNow from "../DonateNow";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+const apiUrl = process.env.REACT_APP_URL;
 
 const stripeKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
 
@@ -56,7 +57,7 @@ function Header() {
     }
 
     try {
-      const response = await fetch("/user-api/change-password", {
+      const response = await fetch(apiUrl + "/user-api/change-password", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

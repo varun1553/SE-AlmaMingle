@@ -100,7 +100,7 @@ function Login() {
   const handlePasswordChangeSubmit = async () => {
     try {
       setsecondforgotPasswordError("")
-      const response = await axios.put(apiUrl+'user-api/change-password', {
+      const response = await axios.put(apiUrl+'/user-api/change-password', {
         username,
         newPassword,
       });
